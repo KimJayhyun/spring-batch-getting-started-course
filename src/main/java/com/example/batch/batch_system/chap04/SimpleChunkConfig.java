@@ -13,7 +13,7 @@ import org.springframework.batch.infrastructure.item.ItemWriter;
 import org.springframework.batch.infrastructure.item.support.ListItemReader;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.transaction.PlatformTransactionManager;
+// import org.springframework.transaction.PlatformTransactionManager;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -25,7 +25,7 @@ import lombok.extern.slf4j.Slf4j;
 public class SimpleChunkConfig {
 
     private final JobRepository jobRepository;
-    private final PlatformTransactionManager transactionManager;
+    // private final PlatformTransactionManager transactionManager;
 
     @Bean
     public Job simpleJob() {
