@@ -21,6 +21,7 @@ import org.springframework.transaction.PlatformTransactionManager;
 
 import com.example.batch.batch_system.domain.Orders;
 import com.example.batch.batch_system.domain.Settlement;
+import com.example.batch.listener.JobLoggerListener;
 
 import jakarta.persistence.EntityManagerFactory;
 import lombok.RequiredArgsConstructor;
@@ -35,9 +36,12 @@ public class SettlementJobConfig {
     private final PlatformTransactionManager transactionManager;
     private final EntityManagerFactory entityManagerFactory;
 
+    private final JobLoggerListener jobLoggerListener;
+
     @Bean
     public Job settlementJob() {
-        return new JobBuilder("settlementJob", jobRepository).start(settlementStep()).build();
+        return new JobBuilder("settlementJob", jobRepository).listener(jobLoggerListener)
+                .start(settlementStep()).build();
     }
 
     @Bean
