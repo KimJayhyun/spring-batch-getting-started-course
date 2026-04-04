@@ -23,4 +23,4 @@ spring:
     jdbc:
       initialize-schema: always # 배치가 실행될 때 필요한 메타 테이블들을 자동 생성해줌
     job:
-      enabled: false
+      enabled: true
