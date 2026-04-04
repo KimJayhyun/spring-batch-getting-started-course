@@ -43,7 +43,8 @@ public class DummyDataLoaderApplication {
                 orderDate = today.minusDays(1 + random.nextInt(10));
             }
 
-            batch.add(new Object[] {customerName, storeName, amount, orderDate.toString()});
+            batch.add(new Object[] {customerName, storeName, amount,
+                    java.sql.Date.valueOf(orderDate)});
 
             if (i % 10000 == 0) {
                 jdbcTemplate.batchUpdate(sql, batch);
